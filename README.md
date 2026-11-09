@@ -1,29 +1,16 @@
-# OdontoVida
+# React + Vite
 
-Site institucional fictício para clínica odontológica, desenvolvido com HTML, CSS, JavaScript e React.js, com formulário de contato funcional integrado ao Firebase, para fins de portfólio.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Tecnologias e ferramentas utilizadas
+Currently, two official plugins are available:
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## 1. Criação do Wireframe
+## React Compiler
 
-Usei de inspiração duas landing pages do Dribbble, fiz o wireframe do computador no Figma e depois adaptei para tablet e celular.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Link: https://www.figma.com/design/vHDmjOXghrUlc9gHvpiWQT/OdontoVida?node-id=1-2&t=D2oMIHlmzl7Oipfv-1
+## Expanding the ESLint configuration
 
-## 2. Criação do Designer final
-Após a criação das wireframe terminei a criação do design final do site no Doop por ser gratuito.
-
-Link: https://doop.design/c/3fwmXP9CVW
-
-## Como rodar
-
-```bash
-npm install
-npm run dev
-```
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
