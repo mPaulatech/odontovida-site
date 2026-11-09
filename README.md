@@ -20,3 +20,10 @@ Link: https://www.figma.com/design/vHDmjOXghrUlc9gHvpiWQT/OdontoVida?node-id=1-2
 Após a criação das wireframe terminer a criação do design final do site no Doop por ser gratuito.
 
 Link: https://doop.design/c/3fwmXP9CVW
+
+## Como rodar
+
+```bash
+npm install
+npm run dev
+```
