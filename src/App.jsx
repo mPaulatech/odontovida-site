@@ -1,120 +1,209 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
 
+const servicos = [
+  { numero: '01', nome: 'Limpeza e prevenção' },
+  { numero: '02', nome: 'Ortodontia' },
+  { numero: '03', nome: 'Clareamento' },
+  { numero: '04', nome: 'Avaliação completa' },
+]
+
+const equipe = [
+  { nome: 'Dra. Helena Martins', especialidade: 'Clínica geral' },
+  { nome: 'Dr. Caio Nunes', especialidade: 'Ortodontia' },
+  { nome: 'Dra. Sofia Lima', especialidade: 'Estética dental' },
+]
+
 function App() {
-  const [count, setCount] = useState(0)
+  function impedirEnvio(evento) {
+    evento.preventDefault()
+  }
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+      <header className="cabecalho" id="inicio">
+        <a className="marca" href="#inicio" aria-label="OdontoVida, início">
+          Odonto<span>Vida</span>
+        </a>
+        <nav className="navegacao" aria-label="Navegação principal">
+          <a href="#inicio">Home</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <div className="apresentacao">
+          <p className="sobretitulo sobretitulo-claro">OdontoVida · cuidado próximo</p>
+          <h1>
+            Sorria com confiança.
+            <br />
+            Cuidado odontológico completo para toda a família, em um ambiente
+            acolhedor e moderno.
+          </h1>
+          <a className="botao botao-claro" href="#contato">
+            Agende sua consulta <span aria-hidden="true">↗</span>
+          </a>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+        <span className="hero-nota" aria-hidden="true">Odontologia com cuidado humano</span>
+      </header>
 
-      <div className="ticks"></div>
+      <main>
+        <section className="sobre secao-clara" id="sobre">
+          <div className="sobre-grade">
+            <div className="sobre-lateral">
+              <p className="sobretitulo">Nossa clínica</p>
+              <h2>Sobre a OdontoVida</h2>
+              <div className="valores">
+                <span className="detalhe-numero">01 / Nosso jeito</span>
+                <h3>Valores que sustentam nosso trabalho</h3>
+                <p>
+                  Ética, empatia e excelência técnica em cada atendimento — com
+                  humanização do início ao fim e compromisso total com o seu
+                  resultado.
+                </p>
+              </div>
+            </div>
+            <div className="sobre-conteudo">
+              <h3 className="sobre-chamada">
+                Mais do que tratar sorrisos, cuidamos de pessoas: conheça os
+                princípios que norteiam cada atendimento na OdontoVida.
+              </h3>
+              <p>
+                Há mais de 10 anos, a Clínica OdontoVida se dedica a transformar
+                sorrisos e devolver a autoestima de seus pacientes. Contamos com
+                uma equipe multidisciplinar de dentistas especializados,
+                comprometidos em oferecer um atendimento humanizado, técnico e
+                personalizado para cada paciente.
+              </p>
+              <p>
+                Acreditamos que ir ao dentista não precisa ser motivo de medo ou
+                desconforto. Por isso, investimos em tecnologia de ponta e em um
+                ambiente pensado para proporcionar bem-estar do início ao fim
+                do tratamento.
+              </p>
+            </div>
+          </div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+          <div className="servicos" id="servicos">
+            <div className="cabecalho-secao">
+              <div>
+                <p className="sobretitulo">Cuidado em cada etapa</p>
+                <h2>Serviços</h2>
+              </div>
+              <p className="apoio-secao">
+                Um plano de cuidado pensado para o seu sorriso e para a sua rotina.
+              </p>
+            </div>
+            <div className="servicos-grade">
+              {servicos.map((servico) => (
+                <article className="cartao-servico" key={servico.numero}>
+                  <span className="servico-numero">{servico.numero}</span>
+                  <span className="servico-linha" aria-hidden="true" />
+                  <h3>{servico.nome}</h3>
+                  <span className="servico-seta" aria-hidden="true">↗</span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+        <section className="equipe" id="equipe">
+          <div className="cabecalho-secao">
+            <div>
+              <p className="sobretitulo">Gente que cuida de gente</p>
+              <h2>Nosso time</h2>
+            </div>
+            <p className="apoio-secao">
+              Profissionais experientes, atentos a você em todos os detalhes.
+            </p>
+          </div>
+          <div className="equipe-grade">
+            {equipe.map((profissional, indice) => (
+              <article
+                className={`cartao-equipe cartao-equipe-${indice + 1}`}
+                key={profissional.nome}
+              >
+                <div className="equipe-foto" aria-hidden="true">
+                  <span>Foto da equipe</span>
+                </div>
+                <div className="equipe-identificacao">
+                  <h3>{profissional.nome}</h3>
+                  <p>{profissional.especialidade}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="contato-fundo" id="contato">
+          <div className="contato-painel">
+            <div className="contato-informacoes">
+              <p className="sobretitulo sobretitulo-claro">Estamos por aqui</p>
+              <h2>Vamos cuidar do seu sorriso?</h2>
+              <div className="informacao-item">
+                <span>Endereço</span>
+                <p>Rua das Acácias, 120 · Centro</p>
+              </div>
+              <div className="informacao-item">
+                <span>Telefone</span>
+                <a href="tel:+551140002026">(11) 4000-2026</a>
+              </div>
+              <a className="link-social" href="#redes-sociais">
+                Acompanhe a OdontoVida <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <form className="formulario" onSubmit={impedirEnvio}>
+              <div className="formulario-cabecalho">
+                <p className="sobretitulo">Primeiro passo</p>
+                <h2>Entre em contato</h2>
+                <p>Preencha seus dados e conte como podemos ajudar.</p>
+              </div>
+              <label>
+                Tipo de serviço
+                <select defaultValue="">
+                  <option value="" disabled>Selecione uma opção</option>
+                  {servicos.map((servico) => (
+                    <option key={servico.numero}>{servico.nome}</option>
+                  ))}
+                </select>
+              </label>
+              <div className="formulario-linha">
+                <label>
+                  Nome completo
+                  <input type="text" placeholder="Como podemos chamar você?" />
+                </label>
+                <label>
+                  Telefone
+                  <input type="tel" placeholder="(00) 00000-0000" />
+                </label>
+              </div>
+              <label>
+                E-mail
+                <input type="email" placeholder="voce@email.com" />
+              </label>
+              <label>
+                Como podemos ajudar?
+                <textarea rows="3" placeholder="Conte um pouco do que precisa..." />
+              </label>
+              <button className="botao botao-escuro" type="submit">
+                Enviar mensagem <span aria-hidden="true">↗</span>
+              </button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer className="rodape" id="redes-sociais">
+        <a className="marca marca-rodape" href="#inicio">Odonto<span>Vida</span></a>
+        <div className="rodape-redes">
+          <span>Redes sociais</span>
+          <div>
+            <a href="#redes-sociais">Instagram</a>
+            <a href="#redes-sociais">Facebook</a>
+            <a href="#redes-sociais">WhatsApp</a>
+          </div>
+        </div>
+        <p>© 2026 OdontoVida. Todos os direitos reservados.</p>
+      </footer>
     </>
   )
 }
