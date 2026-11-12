@@ -252,6 +252,25 @@ a {
   background: var(--verde-profundo);
 }
 
+.cabecalho-video,
+.cabecalho-sobreposicao {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cabecalho-video {
+  z-index: 0;
+  object-fit: cover;
+}
+
+.cabecalho-sobreposicao {
+  z-index: 0;
+  background: linear-gradient(90deg, rgb(16 76 74 / 88%), rgb(18 105 102 / 58%));
+  pointer-events: none;
+}
+
 .cabecalho::after {
   position: absolute;
   right: -130px;
@@ -489,10 +508,33 @@ a {
   min-height: 285px;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
   padding: 22px;
   border-radius: 5px;
   background: var(--branco);
   transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.cartao-servico::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(16 76 74 / 12%) 15%, rgb(16 76 74 / 88%));
+  content: '';
+}
+
+.servico-imagem {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 240ms ease;
+}
+
+.cartao-servico:hover .servico-imagem {
+  transform: scale(1.04);
 }
 
 .cartao-servico:hover {
@@ -500,8 +542,16 @@ a {
   background: #f8fffc;
 }
 
+.servico-numero,
+.servico-linha,
+.cartao-servico h3,
+.servico-seta {
+  position: relative;
+  z-index: 2;
+  color: var(--branco);
+}
+
 .servico-numero {
-  color: #77908c;
   font-size: 12px;
   font-weight: 700;
 }
@@ -524,9 +574,9 @@ a {
 
 .servico-seta {
   position: absolute;
+  z-index: 2;
   right: 20px;
   bottom: 21px;
-  color: var(--verde-profundo);
   font-size: 20px;
 }
 
@@ -561,14 +611,11 @@ a {
 }
 
 .equipe-foto {
-  display: grid;
-  min-height: 340px;
-  place-items: center;
+  display: block;
+  width: 100%;
+  height: 340px;
   background-color: #d3e8e2;
-  background-image: linear-gradient(145deg, rgb(255 255 255 / 15%), transparent 58%);
-  color: #77908c;
-  font-size: 12px;
-  letter-spacing: 0.5px;
+  object-fit: cover;
 }
 
 .equipe-identificacao {
@@ -793,12 +840,33 @@ a {
 
   .sobre-grade {
     grid-template-columns: minmax(0, 1fr);
-    gap: 42px;
+    gap: 0;
+  }
+
+  .sobre-lateral {
+    display: contents;
+  }
+
+  .sobre-lateral > .sobretitulo {
+    grid-row: 1;
+  }
+
+  .sobre-lateral > h2 {
+    grid-row: 2;
+  }
+
+  .sobre-conteudo {
+    grid-row: 3;
+  }
+
+  .sobre-chamada {
+    margin: 24px 0 18px;
   }
 
   .valores {
+    grid-row: 4;
     max-width: none;
-    margin-top: 35px;
+    margin-top: 24px;
   }
 
   .servicos-grade {
@@ -806,11 +874,17 @@ a {
   }
 
   .equipe-grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
   }
 
+  .cartao-equipe-2 {
+    margin-top: 0;
+  }
+
   .equipe-foto {
-    min-height: 260px;
+    height: 260px;
+    min-height: 0;
   }
 
   .contato-painel {
@@ -888,6 +962,7 @@ a {
   }
 
   .servicos-grade {
+    grid-template-columns: minmax(0, 1fr);
     gap: 11px;
   }
 
@@ -915,7 +990,7 @@ a {
   }
 
   .equipe-foto {
-    min-height: 300px;
+    height: 300px;
   }
 
   .contato-fundo {

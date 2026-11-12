@@ -1,19 +1,77 @@
+import { useEffect, useState } from 'react'
 import './App.css'
+import analisesImagem from './assets/Analises.jpg'
+import aparelhosImagem from './assets/Aparelhos.jpg'
+import clareamentoImagem from './assets/Clareamento.avif'
+import limpezaImagem from './assets/Limpesa.jpg'
+import profissional1Imagem from './assets/Profissional1.jpg'
+import profissional2Imagem from './assets/Profissional2.jpg'
+import profissional3Imagem from './assets/Profissional3.jpg'
+import video1 from './assets/Video1.mp4'
+import video2 from './assets/Video2.mp4'
+import video3 from './assets/Video3.mp4'
+
+const videosCabecalho = [video1, video2, video3]
 
 const servicos = [
-  { numero: '01', nome: 'Limpeza e prevenção' },
-  { numero: '02', nome: 'Ortodontia' },
-  { numero: '03', nome: 'Clareamento' },
-  { numero: '04', nome: 'Avaliação completa' },
+  {
+    numero: '01',
+    nome: 'Limpeza e prevenção',
+    imagem: limpezaImagem,
+    descricaoImagem: 'Limpeza e prevenção odontológica',
+  },
+  {
+    numero: '02',
+    nome: 'Ortodontia',
+    imagem: aparelhosImagem,
+    descricaoImagem: 'Aparelhos ortodônticos',
+  },
+  {
+    numero: '03',
+    nome: 'Clareamento',
+    imagem: clareamentoImagem,
+    descricaoImagem: 'Clareamento dental',
+  },
+  {
+    numero: '04',
+    nome: 'Avaliação completa',
+    imagem: analisesImagem,
+    descricaoImagem: 'Análise odontológica',
+  },
 ]
 
 const equipe = [
-  { nome: 'Dra. Helena Martins', especialidade: 'Clínica geral' },
-  { nome: 'Dr. Caio Nunes', especialidade: 'Ortodontia' },
-  { nome: 'Dra. Sofia Lima', especialidade: 'Estética dental' },
+  {
+    nome: 'Dra. Helena Martins',
+    especialidade: 'Clínica geral',
+    imagem: profissional1Imagem,
+  },
+  {
+    nome: 'Dr. Caio Nunes',
+    especialidade: 'Ortodontia',
+    imagem: profissional2Imagem,
+  },
+  {
+    nome: 'Dra. Sofia Lima',
+    especialidade: 'Estética dental',
+    imagem: profissional3Imagem,
+  },
 ]
 
 function App() {
+  const [indiceVideo, setIndiceVideo] = useState(0)
+  const [reduzirMovimento, setReduzirMovimento] = useState(() =>
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  )
+
+  useEffect(() => {
+    const consultaMovimento = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const atualizarPreferencia = (evento) => setReduzirMovimento(evento.matches)
+
+    consultaMovimento.addEventListener('change', atualizarPreferencia)
+    return () => consultaMovimento.removeEventListener('change', atualizarPreferencia)
+  }, [])
+
   function impedirEnvio(evento) {
     evento.preventDefault()
   }
@@ -21,6 +79,20 @@ function App() {
   return (
     <>
       <header className="cabecalho" id="inicio">
+        {!reduzirMovimento && (
+          <video
+            key={videosCabecalho[indiceVideo]}
+            className="cabecalho-video"
+            src={videosCabecalho[indiceVideo]}
+            autoPlay
+            muted
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+            onEnded={() => setIndiceVideo((indice) => (indice + 1) % videosCabecalho.length)}
+          />
+        )}
+        <div className="cabecalho-sobreposicao" aria-hidden="true" />
         <a className="marca" href="#inicio" aria-label="OdontoVida, início">
           Odonto<span>Vida</span>
         </a>
@@ -95,6 +167,13 @@ function App() {
             <div className="servicos-grade">
               {servicos.map((servico) => (
                 <article className="cartao-servico" key={servico.numero}>
+                  <img
+                    className="servico-imagem"
+                    src={servico.imagem}
+                    alt={servico.descricaoImagem}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <span className="servico-numero">{servico.numero}</span>
                   <span className="servico-linha" aria-hidden="true" />
                   <h3>{servico.nome}</h3>
@@ -121,9 +200,13 @@ function App() {
                 className={`cartao-equipe cartao-equipe-${indice + 1}`}
                 key={profissional.nome}
               >
-                <div className="equipe-foto" aria-hidden="true">
-                  <span>Foto da equipe</span>
-                </div>
+                <img
+                  className="equipe-foto"
+                  src={profissional.imagem}
+                  alt={`Foto de ${profissional.nome}`}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className="equipe-identificacao">
                   <h3>{profissional.nome}</h3>
                   <p>{profissional.especialidade}</p>

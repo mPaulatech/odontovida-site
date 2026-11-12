@@ -16,7 +16,7 @@ Link: https://doop.design/c/3fwmXP9CVW
 
 ### Passo a Passo de execução:
 
-- [ ] Design e Cores;
-- [ ] Imagens;
+- [x] Design e Cores;
+- [x] Imagens;
 - [ ] Responsividade;
 - [ ] Firebase;
