@@ -18,5 +18,5 @@ Link: https://doop.design/c/3fwmXP9CVW
 
 - [x] Design e Cores;
 - [x] Imagens;
-- [ ] Responsividade;
+- [x] Responsividade;
 - [ ] Firebase;
