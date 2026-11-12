@@ -1,22 +1,102 @@
-OdontoVida
-Site institucional fictício para clínica odontológica, desenvolvido com HTML, CSS, JavaScript e React.js, com formulário de contato funcional integrado ao Firebase, para fins de portfólio.
+# OdontoVida — Landing Page
 
-Tecnologias e ferramentas utilizadas
-HTML5 CSS3 JavaScript React Firebase
+Landing page institucional fictícia para uma clínica odontológica, desenvolvida com React, JavaScript e CSS. O projeto tem como objetivo apresentar a identidade da clínica, seus serviços, sua equipe e facilitar o contato com pacientes por meio de um formulário integrado ao Firebase.
 
-1. Criação do Wireframe
-Usei de inspiração duas landing pages do Dribbble, fiz o wireframe do computador no Figma e depois adaptei para tablet e celular.
+O desenvolvimento priorizou uma interface moderna, organização das informações, experiência do usuário e responsividade.
 
-Link: https://www.figma.com/design/vHDmjOXghrUlc9gHvpiWQT/OdontoVida?node-id=1-2&t=D2oMIHlmzl7Oipfv-1
+## Preview
 
-2. Criação do Designer final
-Após a criação das wireframe terminei a criação do design final do site no Doop por ser gratuito.
+<!-- Adicione aqui a imagem do mockup do projeto -->
+![OdontoVida — Mockup](img-mockup/mockup.png)
 
-Link: https://doop.design/c/3fwmXP9CVW
+## Funcionalidades
 
-### Passo a Passo de execução:
+- Layout responsivo para desktop, tablet e dispositivos móveis.
+- Apresentação institucional da clínica.
+- Seção de serviços odontológicos.
+- Apresentação da equipe profissional.
+- Formulário de contato funcional.
+- Integração com Firebase para envio e armazenamento dos dados do formulário.
 
-- [x] Design e Cores;
-- [x] Imagens;
-- [x] Responsividade;
-- [ ] Firebase;
+## Tecnologias e ferramentas
+
+**Desenvolvimento**
+- HTML5
+- CSS3
+- JavaScript
+- React
+- Vite
+
+**Integração e serviços**
+- Firebase
+
+**Design e prototipação**
+- Figma
+- Doop Design
+
+## Processo de desenvolvimento
+
+O projeto foi desenvolvido em etapas, desde a concepção visual até a implementação das funcionalidades.
+
+### 1. Wireframe e estruturação
+
+Inicialmente, utilizei duas landing pages do Dribbble como referências visuais. A partir delas, desenvolvi o wireframe da versão desktop no Figma e posteriormente adaptei a estrutura para tablet e dispositivos móveis.
+
+[Visualizar wireframe no Figma](https://www.figma.com/design/vHDmjOXghrUlc9gHvpiWQT/OdontoVida?node-id=1-2)
+
+### 2. Design da interface
+
+Após a definição da estrutura, desenvolvi o design final da landing page utilizando o Doop Design, explorando a identidade visual, a disposição dos elementos e a experiência de navegação.
+
+[Visualizar design no Doop](https://doop.design/c/3fwmXP9CVW)
+
+[Visualizar mockup de apresentação no Figma](https://www.figma.com/design/M2uVqLSxoSIna12EWXRS3W/Sem-título?node-id=0-1)
+
+### 3. Implementação
+
+Com o design definido, iniciei a implementação utilizando React, JavaScript e CSS, transformando o protótipo em uma página funcional e responsiva.
+
+Também implementei um formulário de contato com integração ao Firebase.
+
+## Como executar o projeto
+
+**1. Clone o repositório**
+
+```bash
+git clone https://github.com/mPaulatech/odontovida-site.git
+```
+
+**2. Entre na pasta do projeto**
+
+```bash
+cd odontovida-site
+```
+
+**3. Instale as dependências**
+
+```bash
+npm install
+```
+
+**4. Configure o Firebase**
+
+Configure as credenciais necessárias para a integração com o Firebase, utilizando variáveis de ambiente conforme a configuração do projeto.
+
+**5. Execute a aplicação**
+
+```bash
+npm run dev
+```
+
+## Status do projeto
+
+- [x] Planejamento e wireframe.
+- [x] Design da interface.
+- [x] Implementação do layout.
+- [x] Responsividade.
+- [ ] Formulário de contato.
+- [ ] Integração com Firebase.
+
+---
+
+Desenvolvido por **Maria Paula Silva** como projeto de portfólio e prática de desenvolvimento frontend.
